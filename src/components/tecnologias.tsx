@@ -9,14 +9,19 @@ const Tecnologias = () => {
       descripcion: 'Creacion del sitio web que desarrollamos los Jareds de Numerico'
     },
     {
-      icono: '🐍',
-      titulo: 'Python',
+      icono: '⚡',
+      titulo: 'JavaScript',
       descripcion: 'Lenguaje para cálculo operaciones numéricas'
     },
     {
       icono: '📈',
       titulo: 'Vercel',
       descripcion: 'Despliegue de la aplicación web'
+    },
+        {
+      icono: '🤖',
+      titulo: 'ChatGPT',
+      descripcion: 'Apoyo para programar la calculadora en JS'
     },
 
   ];
