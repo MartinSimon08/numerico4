@@ -5,24 +5,20 @@ const Tecnologias = () => {
   const tecnologias = [
     {
       icono: '💻',
-      titulo: 'Next.js y v0',
-      descripcion: 'Framework de react principal para implementación de la solución web y la utilización de v0 como IA complementaria'
+      titulo: 'React',
+      descripcion: 'Creacion del sitio web que desarrollamos los Jareds de Numerico'
     },
     {
-      icono: '📊',
-      titulo: 'NumPy',
-      descripcion: 'Biblioteca para cálculo operaciones numéricas'
+      icono: '🐍',
+      titulo: 'Python',
+      descripcion: 'Lenguaje para cálculo operaciones numéricas'
     },
     {
       icono: '📈',
-      titulo: 'Matplotlib y panda',
-      descripcion: 'Visualización de datos y generación de gráficos'
+      titulo: 'Vercel',
+      descripcion: 'Despliegue de la aplicación web'
     },
-    {
-      icono: '🔢',
-      titulo: 'katex',
-      descripcion: 'Herramienta para el ploteo de valores numéricos'
-    }
+
   ];
 
   return (
@@ -50,9 +46,7 @@ const Tecnologias = () => {
         <div className="seccion-implementacion">
           <h3 className="titulo-implementacion">Implementación</h3>
           <p className="texto-implementacion">
-            El proyecto combina teoría matemática rigurosa con implementación práctica en Python, utilizando
-            bibliotecas especializadas para garantizar precisión numérica y visualizaciones claras que facilitan la
-            comprensión del método de mínimos cuadrados.
+El proyecto fue implementado utilizando React para la creación de la interfaz de usuario, y Python para la calculadora
           </p>
         </div>
       </div>

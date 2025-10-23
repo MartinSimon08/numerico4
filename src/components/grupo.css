@@ -1,5 +1,6 @@
 body {
   background-color: #f8f9fc;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .grupo-container {
@@ -28,7 +29,7 @@ body {
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  max-width: 900px;
+  max-width: 1200px; /* Más ancho para los 4 miembros */
   width: 100%;
 }
 
@@ -42,63 +43,127 @@ body {
 
 .integrantes {
   display: flex;
+  justify-content: space-between; /* Fuerza a los 4 miembros a ocupar la fila completa */
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
 }
 
 .integrante {
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  width: 180px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  flex: 1 1 220px; /* Crece, pero no menos de 220px */
+  max-width: 250px; /* Evita que se agranden demasiado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .integrante:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
-  background-color: #7b3fe4;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #8b67ca 0%, #e26bd5 50%, #ff85a2 100%);
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 20px;
-  margin: 0 auto 10px auto;
+  font-size: 24px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.integrante:hover .avatar {
+  transform: scale(1.1);
 }
 
 .nombre {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
-  margin: 4px 0;
+  margin: 6px 0;
 }
 
 .legajo {
-  font-size: 13px;
+  font-size: 14px;
   color: #777;
 }
 
-@media (max-width: 768px) {
-  .grupo-card {
-    padding: 30px 20px;
+/* Responsive */
+@media (max-width: 1024px) {
+  .integrantes {
+    justify-content: center; /* Centra los miembros cuando no caben todos */
+  }
+  .integrante {
+    flex: 1 1 45%; /* 2 por fila */
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .integrante {
+    flex: 1 1 90%; /* 1 por fila en móviles */
+    max-width: 90%;
   }
 
-  .integrante {
-    width: 140px;
-    padding: 15px;
+  .grupo-card {
+    padding: 20px;
   }
 
   .grupo-imagen {
     width: 160px;
     height: 160px;
+  }
+}
+.integrantes {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* ⚡ Evita que uno baje en PC */
+  gap: 20px;
+}
+
+.integrante {
+  flex: 0 1 calc(25% - 15px); /* ⚡ Cada integrante ocupa 25% menos gap */
+  max-width: calc(25% - 15px); /* Evita que crezca demasiado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.integrante:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .integrantes {
+    flex-wrap: wrap; /* Permite que bajen a 2 por fila */
+    justify-content: center;
+  }
+  .integrante {
+    flex: 0 1 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .integrante {
+    flex: 0 1 90%;
+    max-width: 90%;
   }
 }

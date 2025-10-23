@@ -6,7 +6,7 @@ const Grupo: React.FC = () => {
     <div className="grupo-container">
       <h1 className="grupo-titulo">Jareds de numérico</h1>
       <h3 className="grupo-subtitulo">
-        Grupo 6 - Método de Relajación - Análisis Numérico - UTN FRLP
+        Grupo 6 - Euler - Análisis Numérico - UTN FRLP
       </h3>
 
       <div className="grupo-card">
