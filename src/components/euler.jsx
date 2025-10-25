@@ -31,7 +31,7 @@ export default function EulerCalculator() {
   return (
     <div className="euler-container">
       <h2>Calculadora de Euler</h2>
-      <h5>Nota: Usar Variable t y para la mutipicacion *, para exponente **</h5>
+      <h5>Nota: Usar variable t e y. Multiplicación *, exponente **, división /, raíz n-ésima (**(1/n)).</h5>
       <div className="form-row">
         <div className="form-group">
           <label>Ecuación y' =</label>
