@@ -31,7 +31,7 @@ export default function EulerCalculator() {
   return (
     <div className="euler-container">
       <h2>Calculadora de Euler</h2>
-
+      <h5>Nota: Usar Variable t y para la multiplicación el *</h5>
       <div className="form-row">
         <div className="form-group">
           <label>Ecuación y' =</label>
@@ -65,7 +65,7 @@ export default function EulerCalculator() {
                 <CartesianGrid stroke="#ccc" />
                 <XAxis dataKey="t" />
                 <YAxis />
-                <Tooltip />
+                {/*<Tooltip />*/}
                 <Line type="monotone" dataKey="y" stroke="#fff" strokeWidth={3} />
               </LineChart>
             </ResponsiveContainer>
