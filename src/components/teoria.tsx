@@ -48,7 +48,7 @@ export default function Teoria() {
         <code>h = (Xf - X0) / n</code>
       </div>
 
-      <h2>💡 Info del Método de Euler (del profe)</h2>
+      <h2>💡 Info del Método de Euler</h2>
       <p>
         Nuestro algoritmo es:
       </p>
