@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Teoria() {
-  return <div>Sección de Teoría</div>;
+  return <div>SecciónVV de Teoría</div>;
 }
