@@ -12,41 +12,83 @@
 
 .euler-container h2 {
   margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 2rem;
 }
 
-/* Inputs en fila */
+/* --- ESTILOS PARA LA NOTA DE INSTRUCCIONES --- */
+.instructions-note {
+  font-size: 14px;
+  color: #f0f0f0; 
+  background: rgba(0, 0, 0, 0.1); 
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-top: -10px; 
+  margin-bottom: 25px; 
+  line-height: 1.7;
+  display: inline-block; 
+  max-width: 90%;
+}
+
+.instructions-note strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.instructions-note code {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* --- Inputs en fila MEJORADOS --- */
 .form-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 90px;
+  align-items: flex-start;
+  flex: 1; 
+  min-width: 80px;
+}
+
+.form-group.equation-group {
+  flex-grow: 2; 
+  min-width: 150px;
 }
 
 .form-group label {
   font-size: 14px;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  padding-left: 3px;
 }
 
 .form-group input {
-  width: 70px;
-  padding: 5px 8px;
+  width: 100%; 
+  box-sizing: border-box;
+  padding: 10px 12px;
   border-radius: 8px;
   border: none;
   outline: none;
   font-size: 14px;
   text-align: center;
+  background-color: #fff;
+  color: #333;
 }
 
 .calculate-btn {
-  padding: 10px 25px;
+  padding: 12px 30px;
   border-radius: 12px;
   border: none;
   background-color: #7b3fe4;
@@ -57,6 +99,7 @@
   margin: 10px auto 20px auto;
   display: block;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-transform: uppercase;
 }
 
 .calculate-btn:hover {
@@ -64,31 +107,47 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Resultado: layout horizontal */
+/* --- 1. FONDO BLANCO PARA LA SECCIÓN DE RESULTADOS --- */
 .result-section {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
-  background: rgba(255,255,255,0.1);
-  padding: 15px;
+  background: #ffffff; /* <-- FONDO BLANCO */
+  padding: 20px;
   border-radius: 16px;
   justify-content: space-between;
-}
-
-/* Gráfico: ocupa 60% */
-.chart-container {
-  flex: 0 0 60%;
-  max-height: 300px;
-}
-
-/* Pasos: ocupa 35%, scroll si hay muchos */
-.steps-container {
-  flex: 0 0 35%;
-  max-height: 300px;
-  overflow-y: auto;
-  border-left: 1px solid rgba(255,255,255,0.3);
-  padding-left: 10px;
   text-align: left;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- 2. CONTENEDOR DEL GRÁFICO (fondo transparente) --- */
+.chart-container {
+  flex: 1;
+  min-width: 300px;
+  flex-basis: 55%;
+  height: 350px;
+  background: transparent; /* <-- Aseguramos fondo transparente */
+}
+
+/* --- 3. TEXTO OSCURO PARA LOS PASOS --- */
+.steps-container {
+  flex: 1;
+  min-width: 250px;
+  flex-basis: 35%;
+  max-height: 350px;
+  overflow-y: auto;
+  border-left: 1px solid #eee; /* Borde más suave */
+  padding-left: 20px;
+  color: #333; /* <-- TEXTO OSCURO */
+}
+
+.steps-container h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee; /* Borde más suave */
+  padding-bottom: 5px;
+  color: #000; /* <-- TEXTO OSCURO */
 }
 
 .steps-container ul {
@@ -98,6 +157,25 @@
 }
 
 .steps-container li {
-  margin-bottom: 4px;
-  font-size: 13px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.5;
+  color: #555; /* <-- TEXTO OSCURO */
+}
+
+.steps-container li strong {
+  color: #000;
+}
+
+/* --- Scrollbar simple para los pasos --- */
+.steps-container::-webkit-scrollbar {
+  width: 6px;
+}
+.steps-container::-webkit-scrollbar-thumb {
+  background: #ccc; /* Scrollbar gris */
+  border-radius: 3px;
+}
+.steps-container::-webkit-scrollbar-track {
+  background: #f4f4f4;
 }
