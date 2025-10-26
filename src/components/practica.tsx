@@ -100,7 +100,7 @@ const PracticaEuler: React.FC = () => {
       
       {/* --- SECCIÓN 1: EL PROBLEMA --- */}
       <div className="card-container problem-statement">
-        <h2>Sección 1: El Problema a Resolver (Ejercicio 2a)</h2>
+        <h2>Sección 1: El Problema a Resolver</h2>
         <p>
           Dada la Ecuación Diferencial Ordinaria (EDO):
           <strong> <InlineMath math="y' = -y + x + 1" /> </strong>
