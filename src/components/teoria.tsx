@@ -1,98 +1,104 @@
-import React from "react";
-import "./teoria.css";
+import React from 'react';
+import './teoria.css'; // Usaremos el nuevo CSS de abajo
+import 'katex/dist/katex.min.css'; // Importamos el CSS de KaTeX
+import { InlineMath, BlockMath } from 'react-katex';
 
 export default function Teoria() {
   return (
     <div className="teoria-container">
-      <h1>Métodos numéricos para la resolución de ecuaciones diferenciales ordinarias en problemas de valor inicial</h1>
+      <h1>Introducción a los Métodos Numéricos</h1>
 
-      <h2>1) Ecuación diferencial</h2>
-      <p>
-        Una ecuación diferencial del tipo:
-      </p>
+      {/* --- TARJETA 1: QUÉ ES UN PVI --- */}
+      <div className="card-container">
+        <h2>¿Qué es un Problema de Valor Inicial (PVI)?</h2>
+        <p>
+          Para resolver un problema de Ecuaciones Diferenciales Ordinarias (EDO), 
+          necesitamos cuatro componentes fundamentales:
+        </p>
 
-      <div className="formula">
-        <code>y' = f(x, y)</code>
+        <ol className="lista-ordenada">
+          <li>
+            <strong>Una Ecuación Diferencial:</strong> Nos dice la "pendiente" de la solución en cualquier punto.
+            <BlockMath math="y' = f(x, y)" />
+          </li>
+          <li>
+            <strong>Una Condición Inicial:</strong> Es nuestro punto de partida.
+            <BlockMath math="y(x_0) = y_0" />
+          </li>
+          <li>
+            <strong>Un Dominio de Trabajo:</strong> El intervalo en el eje 'x' que queremos resolver.
+            <BlockMath math="x_0 \le x \le x_f" />
+          </li>
+          <li>
+            <strong>Un Paso 'h':</strong> El tamaño de los "saltos" que daremos para avanzar en el dominio. Se calcula como:
+            <BlockMath math="h = \frac{x_f - x_0}{n}" />
+            (Donde 'n' es el número de pasos que queremos dar)
+          </li>
+        </ol>
       </div>
 
-      <p>
-        Es una ecuación que varía respecto de “x” y que varía respecto de “y” 
-        (que a su vez depende de la variación en “x” también).
-      </p>
-
-      <h2>2) Condición inicial</h2>
-      <p>
-        Una condición inicial que debe satisfacer la solución (o varias condiciones
-        que se refieren al mismo valor de “x” si la ecuación es de orden superior):
-      </p>
-
-      <div className="formula">
-        <code>y(x₀) = y₀</code>
+      {/* --- TARJETA 2: POR QUÉ LOS NECESITAMOS --- */}
+      <div className="card-container">
+        <h2>¿Por qué necesitamos Métodos Numéricos?</h2>
+        <p>
+          En la página de práctica, vimos que la EDO <InlineMath math="y' = -y + x + 1" />
+          se podía resolver de forma **analítica** (con cálculo) para obtener la solución exacta: <InlineMath math="y = x + e^{-x}" />.
+        </p>
+        <p>
+          Pero, ¿qué pasa con una ecuación como <InlineMath math="y' = e^{-x^2}" />? 
+          Esta ecuación no se puede resolver con los métodos de integración tradicionales.
+        </p>
+        <p>
+          Los **Métodos Numéricos** existen para darnos una **aproximación** a la solución 
+          cuando la solución analítica es muy difícil o imposible de encontrar.
+        </p>
       </div>
 
-      <h2>3) Dominio de trabajo</h2>
-      <p>
-        Un dominio de trabajo en el eje de las “x” de la forma: X0=Valor Inicial, Xf= Valor Final
-      </p>
-
-      <div className="formula">
-        <code>X0 ≤ x ≤ Xf</code>
+      {/* --- TARJETA 3: EL MÉTODO DE EULER --- */}
+      <div className="card-container">
+        <h2>La Solución: Método de Euler</h2>
+        <p>
+          El Método de Euler es el más simple de todos. Se basa en una idea muy intuitiva:
+          si no podemos seguir la "curva" de la solución, al menos podemos seguir la  
+          <strong> línea tangente</strong> (la pendiente) por un pequeño tramo.
+        </p>
+        <p>
+          Partimos del punto inicial <InlineMath math="(x_0, y_0)" />. Calculamos la pendiente 
+          en ese punto (usando la EDO) y avanzamos un pequeño paso <InlineMath math="h" /> 
+          en esa dirección para encontrar el siguiente punto <InlineMath math="(x_1, y_1)" />.
+        </p>
+                <p>
+          La fórmula que usamos es la de la recta tangente:
+        </p>
+        <div className="formula-destacada">
+          <BlockMath math="y_{n+1} = y_n + h \cdot f(x_n, y_n)" />
+        </div>
       </div>
 
-      <h2>4) Paso “h”</h2>
-      <p>
-        Un paso “h” para recorrer el dominio de trabajo de manera que:
-      </p>
-
-      <div className="formula">
-        <code>h = (Xf - X0) / n</code>
+      {/* --- TARJETA 4: VENTAJAS Y DESVENTAJAS --- */}
+      <div className="card-container">
+        <h2>Ventajas y Desventajas de Euler</h2>
+        <div className="pros-cons-grid">
+          <div className="columna-pro">
+            <h3>✅ Ventajas</h3>
+            <ul>
+              <li><strong>Simple:</strong> Es muy fácil de entender y de programar.</li>
+              <li><strong>Intuitivo:</strong> La idea de seguir la pendiente es muy visual.</li>
+              <li><strong>Fundacional:</strong> Es la base para entender métodos más complejos (como Runge-Kutta).</li>
+            </ul>
+          </div>
+          <div className="columna-con">
+            <h3>❌ Desventajas</h3>
+            <ul>
+              <li><strong>Impreciso:</strong> Acumula mucho error (error de truncamiento) en cada paso.</li>
+              <li><strong>Ineficiente:</strong> Para obtener una buena precisión, se necesita un paso <InlineMath math="h" /> muy pequeño, lo que requiere muchos cálculos.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <h2>💡 Info del Método de Euler</h2>
-      <p>
-        Nuestro algoritmo es:
-      </p>
-
-      <div className="formula">
-        <code>yₙ₊₁ = yₙ + h · f(xₙ, yₙ)</code>
-      </div>
-
-      <p>
-        El método de Euler parte de la idea de la pendiente tangente:
-        sabemos que la derivada <code>f(x, y)</code> representa la pendiente de la
-        curva solución en el punto actual <code>(x, y)</code>.
-      </p>
-
-      <p>
-        Si avanzamos un pequeño paso <code>h</code> en la dirección de esa pendiente,
-        obtenemos una aproximación del nuevo valor de <code>y</code>:
-      </p>
-
-      <div className="formula">
-        <code>yₙ₊₁ = yₙ + h · f(xₙ, yₙ)</code>
-      </div>
-
-      <p>
-        Luego actualizamos:
-      </p>
-
-      <div className="formula">
-        <code>xₙ₊₁ = xₙ + h</code>
-      </div>
-
-      <p>
-        Y repetimos el proceso para avanzar en el dominio definido.
-      </p>
-
-      <div className="resumen">
-        <h3>📋 Resumen y cosas a agregar:</h3>
-        <ul>
-          <li>El método de Euler usa una aproximación paso a paso.</li>
-          <li>Se basa en la pendiente de la curva solución en cada punto.</li>
-          <li>La precisión mejora al disminuir el tamaño de <code>h</code>.</li>
-          <li>Es el método más simple y base para otros métodos más avanzados.</li>
-        </ul>
-      </div>
+      {/* --- TARJETA 5: CONCLUSIÓN --- */}
+      
     </div>
   );
 }

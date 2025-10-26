@@ -5,7 +5,7 @@ import "./navbar.css";
 export default function Navbar() {
   return (
     <nav className="barra-navegacion">
-      <h1 className="titulo-pagina">JAREDS DE NUMERICO</h1>
+      <h1 className="titulo-pagina">JAREDS DE NUMERICO - EULER </h1>
       <ul className="lista-navegacion">
         <li>
           <NavLink

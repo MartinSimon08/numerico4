@@ -1,103 +1,129 @@
-.euler-container {
+/* --- INICIO: Importación de KaTeX --- */
+@import url("https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css");
+/* --- FIN: Importación de KaTeX --- */
+
+/* --- Arreglo de espaciado para KaTeX --- */
+div.katex-display {
+  margin: 0.75em 0 !important;
+}
+
+/* --- Contenedor Principal (Fondo) --- */
+.teoria-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background: linear-gradient(135deg, #8b67ca, #e26bd5, #ff85a2);
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f7f6; /* Fondo gris claro */
+}
+
+.teoria-container h1 {
   text-align: center;
+  color: #222;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-.euler-container h2 {
+.teoria-container h2 {
+  text-align: left;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+  margin-top: 0;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
-/* Inputs en fila */
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+/* --- Estilo de Tarjeta (Igual a practica.css) --- */
+.card-container {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.card-container p {
+  font-size: 1.1rem;
+  line-height: 1.7;
   margin-bottom: 15px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 90px;
-}
-
-.form-group label {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.form-group input {
-  width: 70px;
-  padding: 5px 8px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-  text-align: center;
-}
-
-.calculate-btn {
-  padding: 10px 25px;
-  border-radius: 12px;
-  border: none;
-  background-color: #7b3fe4;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 10px auto 20px auto;
-  display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.calculate-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Resultado: layout horizontal */
-.result-section {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-  background: rgba(255,255,255,0.1);
-  padding: 15px;
-  border-radius: 16px;
-  justify-content: space-between;
-}
-
-/* Gráfico: ocupa 60% */
-.chart-container {
-  flex: 0 0 60%;
-  max-height: 300px;
-}
-
-/* Pasos: ocupa 35%, scroll si hay muchos */
-.steps-container {
-  flex: 0 0 35%;
-  max-height: 300px;
-  overflow-y: auto;
-  border-left: 1px solid rgba(255,255,255,0.3);
-  padding-left: 10px;
-  text-align: left;
-}
-
-.steps-container ul {
-  list-style: none;
+/* --- Lista ordenada para los 4 puntos --- */
+.lista-ordenada {
+  list-style-type: none;
+  counter-reset: item;
   padding-left: 0;
-  margin: 0;
+}
+.lista-ordenada li {
+  counter-increment: item;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  padding-left: 50px;
+  position: relative;
+}
+.lista-ordenada li:before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  background-color: #e6f2ff;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 50%;
 }
 
-.steps-container li {
-  margin-bottom: 4px;
-  font-size: 13px;
+/* --- Fórmula destacada (azul) --- */
+.formula-destacada {
+  font-size: 1.2rem !important;
+  color: #0056b3;
+  background-color: #e6f2ff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+/* --- Grid para Ventajas y Desventajas --- */
+.pros-cons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.columna-pro h3 {
+  color: #1a7431;
+}
+.columna-con h3 {
+  color: #c00;
+}
+
+.pros-cons-grid ul {
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+/* --- Tarjeta de Conclusión --- */
+.conclusion-card {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: none;
+  border-left: 5px solid #007bff;
+}
+.conclusion-card h2 {
+  color: #fff;
+  border-bottom-color: #555;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 600px) {
+  .pros-cons-grid {
+    grid-template-columns: 1fr;
+  }
 }
